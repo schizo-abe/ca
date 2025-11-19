@@ -219,13 +219,8 @@ function initVideoPlayer() {
         progressHandle.style.left = percent + '%';
     });
     
-    // Seek functionality - click on progress bar to jump to position
-    progressContainer.addEventListener('click', (e) => {
-        const rect = progressContainer.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-        const percent = clickX / rect.width;
-        video.currentTime = percent * video.duration;
-    });
+    // Disable seek functionality - progress bar is display only
+    progressContainer.style.pointerEvents = 'none';
     
     // Show controls on hover and when paused
     video.addEventListener('pause', () => {

@@ -1,0 +1,16 @@
+{
+  "name": "clipping-academy-landing",
+  "version": "1.0.0",
+  "description": "VSL Landing Page for Clipping Academy",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=/index.html",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": ["landing-page", "vsl", "coaching"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
+

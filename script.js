@@ -185,6 +185,79 @@ function initAnimatedAmount() {
     }, 2000); // 2 second delay between switches
 }
 
+// Custom Video Player Controls
+function initVideoPlayer() {
+    const video = document.getElementById('vslVideo');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const playIcon = playPauseBtn.querySelector('.play-icon');
+    const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+    const progressContainer = document.getElementById('progressContainer');
+    const progressBar = document.getElementById('progressBarVideo');
+    const progressFilled = document.getElementById('progressFilled');
+    const progressHandle = document.getElementById('progressHandle');
+    const videoPlayer = document.querySelector('.custom-video-player');
+    
+    if (!video || !playPauseBtn) return;
+    
+    // Play/Pause functionality
+    playPauseBtn.addEventListener('click', () => {
+        if (video.paused) {
+            video.play();
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+        } else {
+            video.pause();
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
+        }
+    });
+    
+    // Update progress bar as video plays
+    video.addEventListener('timeupdate', () => {
+        const percent = (video.currentTime / video.duration) * 100;
+        progressFilled.style.width = percent + '%';
+        progressHandle.style.left = percent + '%';
+    });
+    
+    // Seek functionality - click on progress bar to jump to position
+    progressContainer.addEventListener('click', (e) => {
+        const rect = progressContainer.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const percent = clickX / rect.width;
+        video.currentTime = percent * video.duration;
+    });
+    
+    // Show controls on hover and when paused
+    video.addEventListener('pause', () => {
+        videoPlayer.classList.add('controls-visible');
+    });
+    
+    video.addEventListener('play', () => {
+        setTimeout(() => {
+            if (!video.paused) {
+                videoPlayer.classList.remove('controls-visible');
+            }
+        }, 2000);
+    });
+    
+    videoPlayer.addEventListener('mouseenter', () => {
+        videoPlayer.classList.add('controls-visible');
+    });
+    
+    videoPlayer.addEventListener('mouseleave', () => {
+        if (!video.paused) {
+            videoPlayer.classList.remove('controls-visible');
+        }
+    });
+    
+    // Update play/pause icon when video ends
+    video.addEventListener('ended', () => {
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+        videoPlayer.classList.add('controls-visible');
+    });
+}
+
 // Allow Enter key to submit on text inputs
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize progress bar
@@ -192,6 +265,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize animated amount
     initAnimatedAmount();
+    
+    // Initialize video player
+    initVideoPlayer();
     
     // Add click handlers for radio buttons
     const radioInputs = document.querySelectorAll('input[name="newToClipping"]');

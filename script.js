@@ -212,11 +212,21 @@ function initVideoPlayer() {
         }
     });
     
+    // Wait for video metadata to be fully loaded
+    video.addEventListener('loadedmetadata', () => {
+        // Ensure duration is properly set
+        if (video.duration && isFinite(video.duration)) {
+            console.log('Video duration loaded:', video.duration);
+        }
+    });
+    
     // Update progress bar as video plays
     video.addEventListener('timeupdate', () => {
-        const percent = (video.currentTime / video.duration) * 100;
-        progressFilled.style.width = percent + '%';
-        progressHandle.style.left = percent + '%';
+        if (video.duration && isFinite(video.duration)) {
+            const percent = Math.min((video.currentTime / video.duration) * 100, 100);
+            progressFilled.style.width = percent + '%';
+            progressHandle.style.left = percent + '%';
+        }
     });
     
     // Disable seek functionality - progress bar is display only
@@ -245,11 +255,23 @@ function initVideoPlayer() {
         }
     });
     
-    // Update play/pause icon when video ends
+    // Handle video end - ensure it plays to completion and update UI
     video.addEventListener('ended', () => {
+        // Make sure we're at the actual end
+        if (video.duration && video.currentTime < video.duration) {
+            video.currentTime = video.duration;
+        }
+        // Update UI
         playIcon.style.display = 'block';
         pauseIcon.style.display = 'none';
         videoPlayer.classList.add('controls-visible');
+        // Ensure progress bar shows 100%
+        if (progressFilled) {
+            progressFilled.style.width = '100%';
+        }
+        if (progressHandle) {
+            progressHandle.style.left = '100%';
+        }
     });
 }
 

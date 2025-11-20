@@ -4,7 +4,7 @@
   "description": "VSL Landing Page for Clipping Academy",
   "scripts": {
     "dev": "live-server --port=3000 --open=/index.html",
-    "build": "echo 'Static site - no build needed'"
+    "build": "node build.js"
   },
   "keywords": ["landing-page", "vsl", "coaching"],
   "author": "",

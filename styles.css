@@ -155,6 +155,15 @@ body {
     margin-right: auto;
 }
 
+.video-step-title {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: var(--text-white);
+}
+
 .video-container {
     display: flex;
     justify-content: center;
@@ -325,6 +334,14 @@ body {
     text-align: center;
     position: relative;
     min-height: 300px;
+}
+
+.form-step-title {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-white);
 }
 
 /* Progress Bar */

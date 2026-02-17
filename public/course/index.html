@@ -17,5 +17,262 @@
             </div>
         </div>
     </header>
+
+    <main class="course-main">
+        <div class="course-container">
+            <!-- Intro -->
+            <p class="course-intro">INTRODUCING</p>
+            <h1 class="course-title">Clipping Academy <span class="course-title-accent">Vault</span></h1>
+            <p class="course-subtitle">Your complete starter pack to go from <strong>zero</strong> to your <strong class="course-highlight">first viral clip</strong> in <strong class="course-highlight">7 days or less</strong>.</p>
+
+            <!-- What's included card -->
+            <div class="course-card">
+                <h2 class="course-card-heading">WHAT'S INCLUDED</h2>
+                <ul class="course-features">
+                    <li>
+                        <span class="feature-check">&#10003;</span>
+                        <span><strong>FOUNDATION:</strong> Overview of the "clip goldmine" mindset</span>
+                    </li>
+                    <li>
+                        <span class="feature-check">&#10003;</span>
+                        <span><strong>ALGO MASTERY:</strong> REAL metrics that make videos go viral</span>
+                    </li>
+                    <li>
+                        <span class="feature-check">&#10003;</span>
+                        <span><strong>GOLDMINE CONTENT:</strong> How to find long-form content</span>
+                    </li>
+                    <li>
+                        <span class="feature-check">&#10003;</span>
+                        <span><strong>AI CLIPPING:</strong> Forget manual work — my AI takes care of it</span>
+                    </li>
+                    <li>
+                        <span class="feature-check">&#10003;</span>
+                        <span><strong>GETTING PAID:</strong> Scaling to $1500+/month systematically</span>
+                    </li>
+                </ul>
+                <div class="course-bonus">
+                    <span class="bonus-icon">&#127873;</span>
+                    <span><strong>BONUS:</strong> 30+ TUTORIAL VIDEO VAULT</span>
+                </div>
+            </div>
+
+            <!-- Pricing -->
+            <div class="course-pricing">
+                <span class="price-old">$180</span>
+                <span class="price-new">Only $27</span>
+                <span class="price-badge">-85% OFF</span>
+            </div>
+
+            <!-- Buy button -->
+            <a href="#" class="cta-button course-buy-btn">
+                Get Instant Access
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </a>
+        </div>
+    </main>
+
+    <style>
+        .course-main {
+            position: relative;
+            z-index: 1;
+            padding: 50px 0 80px;
+        }
+
+        .course-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .course-intro {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--red-primary);
+            margin-bottom: 12px;
+        }
+
+        .course-title {
+            font-size: 40px;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.2;
+        }
+
+        .course-title-accent {
+            background: linear-gradient(135deg, var(--red-light), var(--red-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .course-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-style: italic;
+            line-height: 1.6;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        .course-highlight {
+            color: var(--red-primary);
+            font-style: italic;
+        }
+
+        /* Card */
+        .course-card {
+            width: 100%;
+            background: linear-gradient(160deg, #1a0000 0%, #2d0a0a 40%, #1a0000 100%);
+            border: 2px solid rgba(196,30,58,0.35);
+            border-radius: 16px;
+            padding: 32px 28px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 40px rgba(196,30,58,0.2);
+        }
+
+        .course-card-heading {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--red-light);
+            margin-bottom: 24px;
+        }
+
+        .course-features {
+            list-style: none;
+            text-align: left;
+            padding: 0;
+            margin: 0;
+        }
+
+        .course-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            font-size: 15px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.5;
+        }
+
+        .course-features li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-check {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+            background: var(--red-primary);
+            color: white;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 1px;
+        }
+
+        .course-features li strong {
+            color: #ffffff;
+        }
+
+        /* Bonus */
+        .course-bonus {
+            margin-top: 20px;
+            padding: 12px 16px;
+            background: rgba(196,30,58,0.15);
+            border: 1px solid rgba(196,30,58,0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--red-light);
+            letter-spacing: 0.5px;
+        }
+
+        .bonus-icon {
+            font-size: 18px;
+        }
+
+        /* Pricing */
+        .course-pricing {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .price-old {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        .price-new {
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--text-dark);
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        .price-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--red-light), var(--red-dark));
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 100px;
+            letter-spacing: 0.5px;
+        }
+
+        .course-buy-btn {
+            font-size: 18px;
+            padding: 20px 44px;
+        }
+
+        @media (max-width: 768px) {
+            .course-title {
+                font-size: 30px;
+            }
+
+            .course-subtitle {
+                font-size: 16px;
+            }
+
+            .price-new {
+                font-size: 34px;
+            }
+
+            .price-old {
+                font-size: 22px;
+            }
+
+            .course-card {
+                padding: 24px 20px;
+            }
+
+            .course-buy-btn {
+                font-size: 16px;
+                padding: 18px 32px;
+            }
+        }
+    </style>
 </body>
 </html>

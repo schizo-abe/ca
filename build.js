@@ -28,5 +28,18 @@ if (fs.existsSync('assets')) {
   });
 }
 
+// Copy results, apply, course pages (clean URLs: /results, /apply, /course)
+['results', 'apply', 'course'].forEach(dir => {
+  const indexSrc = path.join(dir, 'index.html');
+  if (fs.existsSync(indexSrc)) {
+    const destDir = path.join('public', dir);
+    if (!fs.existsSync(destDir)) {
+      fs.mkdirSync(destDir, { recursive: true });
+    }
+    fs.copyFileSync(indexSrc, path.join(destDir, 'index.html'));
+    console.log(`Copied ${dir}/index.html to public/${dir}/`);
+  }
+});
+
 console.log('Build completed successfully!');
 

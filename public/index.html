@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clipping Academy</title>
+    <meta name="description" content="The new way to make $200-$414/day only using your phone">
+    <link rel="icon" type="image/png" href="assets/calogo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <img src="assets/calogo.png" alt="Clipping Academy Logo" class="logo-image">
+                <span>Clipping Academy</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="hero">
+        <div class="container">
+            <!-- Badge -->
+            <div class="badge">
+                <span class="badge-dot"></span>
+                Free Training Reveals:
+            </div>
+
+            <!-- Title -->
+            <h1 class="hero-title">
+                The New Way To Make $200-$414/Day, <span class="title-accent">Only Using Your Phone and Working 1-2 Hours Per Day</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="hero-subtitle">You Don't Need To Show Your Face, Build An Audience, or Sell Any Products</p>
+
+            <!-- Video Player -->
+            <div class="video-container">
+                <div class="custom-video-player">
+                    <video id="vslVideo" class="video-element" preload="auto" crossorigin="anonymous">
+                        <source src="https://pub-7098d2885875401c96828a6de074b025.r2.dev/5a3a9678-6e68-4fd1-9a80-c470258e29fd.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <!-- Play/Pause overlay button -->
+                    <div class="video-controls">
+                        <button class="play-pause-btn" id="playPauseBtn" aria-label="Play/Pause">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="white">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" viewBox="0 0 24 24" fill="white" style="display: none;">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <!-- Always-visible progress bar -->
+                    <div class="video-progress-bar">
+                        <div class="progress-filled" id="progressFilled"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="cta-wrapper">
+                <a href="/results" class="cta-button">
+                    YES! I Want To Start Earning With Clipping
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </a>
+                <p class="cta-note">Only apply after watching the full training</p>
+            </div>
+
+            <!-- Trust Bar -->
+            <div class="trust-bar">
+                <div class="avatar-stack">
+                    <img src="https://i.pravatar.cc/80?img=1" alt="" class="avatar">
+                    <img src="assets/chadi.png" alt="" class="avatar">
+                    <img src="https://i.pravatar.cc/80?img=3" alt="" class="avatar">
+                    <img src="assets/AJ.png" alt="" class="avatar">
+                </div>
+                <div class="trust-text">
+                    <div class="trust-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>Trusted by <strong>+100</strong><br>Creators &amp; Experts</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

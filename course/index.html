@@ -1508,8 +1508,7 @@
                 data-whop-checkout-theme="dark"
                 data-whop-checkout-theme-accent-color="red"
                 data-whop-checkout-hide-price="true"
-                data-whop-checkout-skip-redirect="true"
-                data-whop-checkout-on-complete="onWhopCheckoutComplete"
+                data-whop-checkout-return-url="https://whop.com/clipping-academy-premium/"
             ></div>
         </div>
     </div>
@@ -1581,11 +1580,6 @@
     </style>
 
     <script>
-        function onWhopCheckoutComplete(planId, receiptId) {
-            document.getElementById('whop-modal').style.display = 'none';
-            alert('Payment successful! Welcome to Clipping Academy.');
-        }
-
         function openWhopCheckout(e) {
             e.preventDefault();
             document.getElementById('whop-modal').style.display = 'flex';

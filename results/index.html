@@ -6,6 +6,47 @@
     <title>Results - Clipping Academy</title>
     <link rel="icon" type="image/png" href="../assets/calogo.png">
     <link rel="stylesheet" href="../styles.css">
+    <style>
+        .results-video-wrap {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px;
+            height: 64px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #fff;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .results-video-wrap.playing .video-play-btn {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(1.3);
+        }
+
+        .results-video::-webkit-media-controls-fullscreen-button {
+            display: none !important;
+        }
+
+        .results-video::-webkit-media-controls-enclosure {
+            overflow: hidden;
+        }
+
+        video::-webkit-media-controls-panel {
+            -webkit-overflow-scrolling: auto;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -71,11 +112,12 @@
                 <div class="results-achievement">🏆 Scaled to $50,000 within 5 months</div>
                 <div class="results-section-inner">
                     <div class="results-media">
-                        <div class="results-video-wrap">
-                            <video class="results-video" controls preload="metadata" playsinline webkit-playsinline>
+                        <div class="results-video-wrap" onclick="toggleVideo(this)">
+                            <video class="results-video" preload="metadata" playsinline webkit-playsinline disablePictureInPicture controlsList="nofullscreen nodownload">
                                 <source src="https://pub-7098d2885875401c96828a6de074b025.r2.dev/AJ.mov" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
+                            <div class="video-play-btn">&#9654;</div>
                         </div>
                     </div>
                     <div class="results-copy">
@@ -96,11 +138,12 @@
                 <div class="results-achievement">🏆 $1,000 clipping payouts</div>
                 <div class="results-section-inner">
                     <div class="results-media">
-                        <div class="results-video-wrap">
-                            <video class="results-video" controls preload="metadata" playsinline webkit-playsinline>
+                        <div class="results-video-wrap" onclick="toggleVideo(this)">
+                            <video class="results-video" preload="metadata" playsinline webkit-playsinline disablePictureInPicture controlsList="nofullscreen nodownload">
                                 <source src="https://pub-7098d2885875401c96828a6de074b025.r2.dev/Sam.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
+                            <div class="video-play-btn">&#9654;</div>
                         </div>
                     </div>
                     <div class="results-copy">
@@ -157,6 +200,25 @@
             </div>
         </div>
     </main>
+
+    <script>
+        function toggleVideo(wrap) {
+            var video = wrap.querySelector('video');
+            if (video.paused) {
+                video.play();
+                wrap.classList.add('playing');
+            } else {
+                video.pause();
+                wrap.classList.remove('playing');
+            }
+        }
+
+        document.querySelectorAll('.results-video').forEach(function(v) {
+            v.addEventListener('ended', function() {
+                v.closest('.results-video-wrap').classList.remove('playing');
+            });
+        });
+    </script>
 
     <script>
         (function() {

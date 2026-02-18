@@ -41,5 +41,16 @@ if (fs.existsSync('assets')) {
   }
 });
 
+// Copy Apple Pay domain verification file to .well-known
+const wellKnownDir = path.join('public', '.well-known');
+if (!fs.existsSync(wellKnownDir)) {
+  fs.mkdirSync(wellKnownDir, { recursive: true });
+}
+const appleFile = path.join('assets', 'apple-developer-merchantid-domain-association');
+if (fs.existsSync(appleFile)) {
+  fs.copyFileSync(appleFile, path.join(wellKnownDir, 'apple-developer-merchantid-domain-association'));
+  console.log('Copied apple-developer-merchantid-domain-association to public/.well-known/');
+}
+
 console.log('Build completed successfully!');
 

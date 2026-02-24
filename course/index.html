@@ -1502,14 +1502,7 @@
         <div class="whop-modal-backdrop"></div>
         <div class="whop-modal-content">
             <button id="whop-modal-close" class="whop-modal-close" aria-label="Close">&times;</button>
-            <div
-                id="whop-checkout-container"
-                data-whop-checkout-plan-id="plan_dVBFTFikxyVVs"
-                data-whop-checkout-theme="dark"
-                data-whop-checkout-theme-accent-color="red"
-                data-whop-checkout-hide-price="true"
-                data-whop-checkout-return-url="https://whop.com/login/"
-            ></div>
+            <div id="whop-checkout-container"></div>
         </div>
     </div>
 
@@ -1580,18 +1573,44 @@
     </style>
 
     <script>
+        window.onWhopCheckoutComplete = function(planId, receiptId) {
+            document.getElementById('whop-modal').style.display = 'none';
+            window.location.href = 'https://whop.com/login/';
+        };
+
+        function mountCheckout() {
+            var container = document.getElementById('whop-checkout-container');
+            container.innerHTML = '';
+            var embed = document.createElement('div');
+            embed.setAttribute('data-whop-checkout-plan-id', 'plan_dVBFTFikxyVVs');
+            embed.setAttribute('data-whop-checkout-theme', 'dark');
+            embed.setAttribute('data-whop-checkout-theme-accent-color', 'red');
+            embed.setAttribute('data-whop-checkout-hide-price', 'true');
+            embed.setAttribute('data-whop-checkout-return-url', 'https://whop.com/login/');
+            embed.setAttribute('data-whop-checkout-on-complete', 'onWhopCheckoutComplete');
+            container.appendChild(embed);
+            if (window.wco && typeof window.wco.mount === 'function') {
+                window.wco.mount();
+            }
+        }
+
+        function destroyCheckout() {
+            document.getElementById('whop-checkout-container').innerHTML = '';
+        }
+
         function openWhopCheckout(e) {
             e.preventDefault();
+            mountCheckout();
             document.getElementById('whop-modal').style.display = 'flex';
         }
 
-        document.getElementById('whop-modal-close').addEventListener('click', function() {
+        function closeWhopCheckout() {
             document.getElementById('whop-modal').style.display = 'none';
-        });
+            destroyCheckout();
+        }
 
-        document.querySelector('.whop-modal-backdrop').addEventListener('click', function() {
-            document.getElementById('whop-modal').style.display = 'none';
-        });
+        document.getElementById('whop-modal-close').addEventListener('click', closeWhopCheckout);
+        document.querySelector('.whop-modal-backdrop').addEventListener('click', closeWhopCheckout);
 
         document.addEventListener('DOMContentLoaded', function() {
             var buttons = document.querySelectorAll('.cta-button.course-buy-btn, .cta-button.pitch-cta');
